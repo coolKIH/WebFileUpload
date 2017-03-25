@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>File Uploader</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+
+  <link rel="stylesheet" href="index.css"/>
+</head>
+<body ontouchstart="">
+<div id="upload-file-field">拖动上传PDF，DOC或者DOCX文件，不大于<div id="max-file-size-m"><span id="max-value">15</span><div id="minus">&minus;</div><div id="plus">&plus;</div></div>MB。</div>
+<div id="clear-finished">清空已完成项目</div>
+<div id="task-face">
+</div>
+<script id="task-item-template" type="my-template">
+  <div class="task-item" data-id="{{taskItemId}}" data-finished="no">
+    <div class="file-name">{{fileName}}</div>
+    <div class="file-type">{{fileType}}</div>
+    <div class="file-size">{{fileSizeInMB}} MB</div>
+    <div class="upload-progress-wrapper {{fileType}}"></div>
+  </div>
+</script>
+<script src="app.js" async></script>
+</body>
+</html>

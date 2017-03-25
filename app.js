@@ -65,9 +65,10 @@
                         fileSize = file.size,
                         regexGetType = /\.([^\.]+$)/,
                         fileType = fileName.match(regexGetType);
-                        fileType = fileType?fileType[1]:"";
+                        fileType = fileType?fileType[1]:(file.type?file.type:"n/a");
 
-                    if(regexAcceptedTypes.test(fileType) && ( fileSize <= maxFileSizeInBytes || !maxFileSizeInBytes ) ) {
+                    if((regexAcceptedTypes.test(fileType) || fileType==="n/a") && ( fileSize <= maxFileSizeInBytes || !maxFileSizeInBytes ) ) {
+                        console.log(file)
                         var taskItemId = taskItemIdTillNow++;
                         var taskItemHTML = new UploadFaceItem(fileName, fileSize, taskItemId, fileType).getElementHTML();
                         taskFace.insertAdjacentHTML("beforeend", taskItemHTML);
